@@ -24,7 +24,7 @@ import { sentry_url } from './data/config';
 
 Raven.config(sentry_url).install();
 
-console.log(window.doesNotExit.nope)
+//console.log(window.doesNotExit.nope)
 
 const router = (
   <Provider store={store}>
