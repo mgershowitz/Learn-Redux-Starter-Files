@@ -8,20 +8,26 @@ import css from './styles/style.styl';
 
 
 //import components
-import Main from './components/Main';
-import single from './components/single';
+import App from './components/App';
+import Single from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
 
 //import react router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store'
+
 
 const router = (
-  <Router history={browserHistory}>
-    <Route path='/' component={Main}>
+  <Provider store={store}>
+  <Router history={history}>
+    <Route path='/' component={App}>
       <IndexRoute component={PhotoGrid}></IndexRoute>
-      <Route path='/view/:postId' component={single}></Route>
+      <Route path='/view/:postId' component={Single}></Route>
     </Route>
-  </Router>)
+  </Router>
+  </Provider>
+  )
 
 
 render(router, document.getElementById('root'));
